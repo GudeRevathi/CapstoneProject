@@ -36,7 +36,7 @@ pipeline {
 
                 // Cucumber Report
                 publishHTML([
-                    reportDir: 'target/surefire-reports',
+                    reportDir: 'target',
                     reportFiles: 'cucumber-reports.html',
                     reportName: 'Cucumber Report',
                     keepAll: true,
