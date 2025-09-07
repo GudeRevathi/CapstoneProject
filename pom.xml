@@ -97,27 +97,7 @@
 				</configuration>
 			</plugin>
 		
-		<plugin>
-    <groupId>net.masterthought</groupId>
-    <artifactId>maven-cucumber-reporting</artifactId>
-    <version>5.7.0</version>
-    <executions>
-        <execution>
-            <id>generate-cucumber-html-report</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-            <configuration>
-                <projectName>CapstoneProject</projectName>
-                <reportOutputDirectory>${project.build.directory}/cucumber-html-reports</reportOutputDirectory>
-                <jsonFiles>
-                    <param>${project.build.directory}/cucumber-reports/Cucumber.json</param>
-                </jsonFiles>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+		
 		</plugins>
 
 	</build>
