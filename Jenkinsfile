@@ -36,13 +36,14 @@ pipeline {
 
                 // Cucumber Report
                 publishHTML([
-                    reportDir: 'target',
-                    reportFiles: 'cucumber-reports.html',
+                    reportDir: 'target/cucumber-html-reports',
+                    reportFiles: 'index.html',
                     reportName: 'Cucumber Report',
                     keepAll: true,
                     allowMissing: false,
                     alwaysLinkToLastBuild: true
                 ])
+
             }
         }
 
