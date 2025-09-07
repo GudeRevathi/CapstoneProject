@@ -34,16 +34,6 @@ pipeline {
                     alwaysLinkToLastBuild: true
                 ])
 
-                // Cucumber Report
-                publishHTML([
-                    reportDir: 'target/cucumber-html-reports',
-                    reportFiles: 'index.html',
-                    reportName: 'Cucumber Report',
-                    keepAll: true,
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true
-                ])
-
             }
         }
 
