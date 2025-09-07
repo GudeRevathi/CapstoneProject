@@ -15,19 +15,30 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                echo 'Building the project and running TestNG tests with Maven...'
-                // Clean + compile + run tests
+                echo 'Building the project and running TestNG + Cucumber tests with Maven...'
                 bat 'mvn clean test'
             }
         }
 
         stage('Publish Reports') {
             steps {
-                echo 'Publishing ExtentReports in Jenkins...'
+                echo 'Publishing ExtentReports and Cucumber Reports in Jenkins...'
+
+                // Extent Report
                 publishHTML([
-                    reportDir: 'reports/ExtentReports',    // adjust if your ExtentReports folder differs
+                    reportDir: 'reports/ExtentReports',
                     reportFiles: 'index.html',
                     reportName: 'Extent Report',
+                    keepAll: true,
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true
+                ])
+
+                // Cucumber Report
+                publishHTML([
+                    reportDir: 'target/surefire-reports',
+                    reportFiles: 'cucumber-reports.html',
+                    reportName: 'Cucumber Report',
                     keepAll: true,
                     allowMissing: false,
                     alwaysLinkToLastBuild: true
@@ -47,7 +58,7 @@ pipeline {
             echo 'Pipeline succeeded!'
         }
         failure {
-            echo 'Pipeline failed! Please check Jenkins logs and ExtentReport.'
+            echo 'Pipeline failed! Please check Jenkins logs and reports.'
         }
     }
 }
