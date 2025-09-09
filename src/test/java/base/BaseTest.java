@@ -12,7 +12,7 @@ import java.time.Duration;
 public class BaseTest {
 
     protected WebDriver driver;
-
+// Base test for every test class
     @BeforeClass
     public void setUp() {
         DriverFactory.initDriver();        // ✅ registers driver
